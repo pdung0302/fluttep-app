@@ -9,8 +9,8 @@ class ApiServices extends BaseApiServices {
   Future getApi(String url) async {
     var jsonData;
     try {
-      var response = await http.get(Uri.parse(url)).timeout(
-          const Duration(seconds: 10));
+      var response =
+          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
       jsonData = jsonResponse(response);
     } on SocketException {
       throw InternetException('No Internet');
@@ -33,6 +33,4 @@ class ApiServices extends BaseApiServices {
             'Error while Communication ${response.statusCode}');
     }
   }
-
-
 }
